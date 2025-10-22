@@ -14,16 +14,12 @@ public class LineaVenta extends BaseModel {
     }
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
+        //deberia de usar el PreUpdate o PrePersist/PostPersist
     }
 
     @Depends({"precio","cantidad"})
     public void computePrecioFinal(){
         this.precioTotal = (precio * cantidad);
         System.out.println("Recalculado");
-
     }
-
-
-
-
 }
